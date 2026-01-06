@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 5%;
+    --foreground: 45 30% 95%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 45 30% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 45 30% 95%;
+
+    --primary: 43 74% 49%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 45 30% 95%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 45 10% 60%;
+
+    --accent: 43 74% 49%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 15%;
+    --ring: 43 74% 49%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --gold: 43 74% 49%;
+    --gold-light: 43 74% 60%;
+    --gold-dark: 43 74% 40%;
+    --charcoal: 0 0% 8%;
+    --charcoal-light: 0 0% 12%;
+    --cream: 45 30% 95%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(43 74% 49%), hsl(43 74% 60%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 5%), hsl(0 0% 8%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 10%), hsl(0 0% 6%));
+
+    /* Shadows */
+    --shadow-gold: 0 4px 30px hsl(43 74% 49% / 0.15);
+    --shadow-elevated: 0 20px 60px hsl(0 0% 0% / 0.5);
+
+    /* Font families */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
+  }
+
+  .border-gradient-gold {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--charcoal), var(--charcoal)) padding-box,
+                var(--gradient-gold) border-box;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-2;
+    box-shadow: var(--shadow-gold);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 40px hsl(43 74% 49% / 0.3);
+  }
+
+  .gold-glow-intense {
+    box-shadow: 0 0 60px hsl(43 74% 49% / 0.4), 0 0 100px hsl(43 74% 49% / 0.2);
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  /* Marquee animation for partners */
+  .marquee-container {
+    @apply overflow-hidden relative;
+  }
+
+  .marquee-content {
+    @apply flex gap-16 animate-marquee;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(43 74% 49% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(43 74% 49% / 0.5), 0 0 60px hsl(43 74% 49% / 0.3);
+    }
+  }
+
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+}
