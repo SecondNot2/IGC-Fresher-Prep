@@ -16,6 +16,7 @@ Dự án được tổ chức theo mô hình Monorepo đơn giản để quản 
 ### [02-ore-imc-web](./02-ore-imc-web/)
 
 - **Mục tiêu:** Thực hiện Landing Page thực tế cho Ore IMC Agency bằng AI Automation.
+- **Link Demo Live:** 👉 [https://ore-imc-demo.vercel.app/](https://ore-imc-demo.vercel.app/) 🚀
 - **Tech Stack:** React, TypeScript, Tailwind CSS, Framer Motion, Shadcn/UI.
 - **Điểm nổi bật:** Tư duy sản phẩm, giao diện hiện đại, tối ưu trải nghiệm người dùng (UX) và Validation logic chặt chẽ.
 
