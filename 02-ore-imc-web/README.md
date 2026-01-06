@@ -1,73 +1,41 @@
-# Welcome to your Lovable project
+# Ore IMC Agency Landing Page - Day 3 Project
 
-## Project info
+Dự án này là một Landing Page hiện đại dành cho **Ore IMC Agency** (một đơn vị thành viên của IGC Group). Trang web được thiết kế để thể hiện vị thế của một Agency hàng đầu trong lĩnh vực Media-Tech.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## ✨ Điểm nổi bật về sản phẩm (Product Mindset)
 
-## How can I edit this code?
+Thay vì chỉ là một giao diện tĩnh, dự án tập trung vào việc giải quyết các bài toán của một Creative Agency:
 
-There are several ways of editing your application.
+- **Hệ sinh thái khép kín:** Làm nổi bật sự kết hợp giữa Ore IMC, Việt Producer và Studio Việt Nam.
+- **Sức mạnh con số (Power of Numbers):** Hiển thị uy tín qua các số liệu 1000+ dự án, 200+ nhân sự.
+- **Định vị chuyên gia:** Tập trung vào các ngành trọng điểm như Bất động sản, Dược phẩm và FMCG.
+- **Trải nghiệm mượt mà:** Sử dụng Framer Motion cho các hiệu ứng Scroll Reveal và Hover hiệu quả.
 
-**Use Lovable**
+## 🛠 Công nghệ sử dụng
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **Framework:** React + Vite (Tối ưu tốc độ build).
+- **Styling:** Tailwind CSS (Responsive ưu tiên thiết bị di động).
+- **UI Components:** Shadcn/UI (Đảm bảo tính nhất quán và chuyên nghiệp).
+- **Animation:** Framer Motion.
+- **Validation:** Regex chuẩn cho số điện thoại Việt Nam và Email trong Form liên hệ.
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🤖 Quy trình phát triển bằng AI
 
-**Use your preferred IDE**
+Sản phẩm được thực hiện với quy trình **AI-Assisted Development**:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1.  **Prompt Engineering:** Thiết lập ngữ cảnh về thương hiệu Ore IMC để AI hiểu về USP (Unique Selling Points).
+2.  **UI Generation:** Sử dụng AI để dựng bộ khung Layout chuẩn Agency.
+3.  **Refactoring:** Can thiệp thủ công để viết Custom Hooks xử lý Validation và chia nhỏ Components để dễ bảo trì.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📦 Cài đặt và Chạy dự án
 
-Follow these steps:
+```bash
+# Di chuyển vào thư mục
+cd 02-ore-imc-web
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Cài đặt thư viện
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Chạy ở chế độ Development
 npm run dev
 ```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
