@@ -274,3 +274,87 @@ export const oreNavigation = {
   contact: "https://oreagency.vn/lien-he",
   blogs: "https://oreagency.vn/blogs-252331",
 };
+
+// --- Ecosystem Links (For Footer) ---
+export const ecosystemLinks = {
+  oreimc: { name: "Ore IMC Agency", url: "https://oreagency.vn/" },
+  vietProducer: { name: "Viet Producer", url: "https://vietproducer.com/" },
+  studioVietnam: { name: "Studio Vietnam", url: "https://studiovietnam.com/" },
+  artcity: { name: "Artcity", url: "https://artcity.vn/" },
+  szone: { name: "Szone Game Studio", url: "https://szonestudio.com/" },
+  skrice: { name: "Skrice Studio", url: "https://skrice.com/" },
+  lumina: { name: "Lumina Academy", url: "https://www.lumina.edu.vn/" },
+  igcGroup: { name: "IGC Group", url: "https://igc.vn" },
+};
+
+// --- Featured Projects with Case Studies ---
+export const featuredProjects = [
+  {
+    id: "van-lang-skylake",
+    title: "Văn Lang SkyLake",
+    category: "Bất Động Sản",
+    description: "Integrated Marketing Campaign",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
+    tags: ["Strategy", "Digital", "Production"],
+    caseStudy: {
+      problem:
+        "Văn Lang SkyLake là dự án căn hộ cao cấp tại Hà Nội với vị trí đắc địa nhưng đối mặt với sự cạnh tranh khốc liệt từ các dự án BĐS lân cận. Thương hiệu cần tạo sự khác biệt và tiếp cận đúng tệp khách hàng mục tiêu.",
+      solution:
+        "Ore IMC triển khai chiến lược IMC tổng thể:\n• Digital Marketing đa kênh (Facebook, Google, Zalo)\n• TVC quảng cáo với storytelling sâu sắc\n• Event ra mắt sản phẩm ấn tượng\n• PR truyền thông đồng bộ trên báo chí",
+      result:
+        "• Tăng 150% lượng leads trong 2 tháng đầu\n• Sold out 80% căn hộ trong 3 tháng\n• Brand awareness tăng 200% theo khảo sát\n• ROI quảng cáo đạt 5.2x",
+    },
+  },
+  {
+    id: "duoc-pham-nibifa",
+    title: "Dược phẩm Nibifa",
+    category: "TVC Storytelling",
+    description: "TVC & Brand Campaign",
+    image:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
+    tags: ["TVC", "Healthcare", "Storytelling"],
+    caseStudy: {
+      problem:
+        "Nibifa là thương hiệu dược phẩm uy tín nhưng gặp khó khăn trong việc kết nối cảm xúc với người tiêu dùng. TVC cũ không tạo được ấn tượng và khác biệt so với đối thủ.",
+      solution:
+        "Viet Producer thực hiện TVC theo hướng storytelling:\n• Kịch bản cảm xúc lấy cảm hứng từ câu chuyện thực\n• Quay phim chất lượng điện ảnh\n• Âm nhạc và color grading chuyên nghiệp\n• Phát sóng trên VTV và digital platforms",
+      result:
+        "• TVC đạt 5 triệu views trên YouTube\n• Brand recall tăng 180%\n• Doanh số tăng 45% sau chiến dịch\n• Giải thưởng TVC xuất sắc tại Marketing Awards",
+    },
+  },
+  {
+    id: "bia-ha-long-legend",
+    title: "Bia Hạ Long Legend",
+    category: "FMCG / TVC",
+    description: "Launch Campaign",
+    image:
+      "https://images.unsplash.com/photo-1608270586620-248524c67de9?w=800&h=600&fit=crop",
+    tags: ["FMCG", "TVC", "Launch"],
+    caseStudy: {
+      problem:
+        "Bia Hạ Long Legend là sản phẩm mới ra mắt trong thị trường bia vô cùng cạnh tranh, cần chiến lược launch mạnh mẽ để tạo dấu ấn và giành thị phần từ các thương hiệu lớn.",
+      solution:
+        "Chiến dịch launch đa kênh:\n• TVC quảng cáo với concept 'Huyền thoại Việt Nam'\n• Sampling campaign tại 500+ điểm bán\n• KOL collaboration với các influencer ẩm thực\n• Digital activation và mini-game viral",
+      result:
+        "• Đạt top 3 thị phần vùng trong 6 tháng\n• 2 triệu người tiếp cận qua digital\n• Trial rate đạt 35% tại các điểm sampling\n• Brand awareness đạt 60% tại thị trường mục tiêu",
+    },
+  },
+  {
+    id: "baekje-galbi",
+    title: "Nhà hàng Baekje Galbi",
+    category: "F&B / Photography",
+    description: "Food Photography & Content",
+    image:
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop",
+    tags: ["F&B", "Photography", "Content"],
+    caseStudy: {
+      problem:
+        "Baekje Galbi là nhà hàng Hàn Quốc cao cấp tại Hà Nội, cần bộ ảnh ẩm thực chuyên nghiệp và content marketing để nâng cao hình ảnh thương hiệu và thu hút khách hàng qua social media.",
+      solution:
+        "Studio Vietnam thực hiện:\n• Chụp ảnh ẩm thực phong cách Hàn Quốc hiện đại\n• Quay video behind-the-scenes đầu bếp\n• Xây dựng content calendar cho Facebook/Instagram\n• Food styling và set design chuyên nghiệp",
+      result:
+        "• Engagement rate tăng 300% trên social\n• Lượng đặt bàn online tăng 120%\n• UGC content từ khách hàng tăng đáng kể\n• Được feature trên các trang review ẩm thực lớn",
+    },
+  },
+];

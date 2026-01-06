@@ -1,10 +1,11 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Send, MapPin, Phone, Mail, Building } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { offices, contact } from "@/data/company-data";
+import useFormValidation from "@/hooks/use-form-validation";
+import ScrollReveal from "@/components/ui/scroll-reveal";
 
 const contactSchema = z.object({
   name: z
@@ -30,80 +31,59 @@ const contactSchema = z.object({
     .max(1000, "Lời nhắn quá dài"),
 });
 
+type ContactFormData = z.infer<typeof contactSchema>;
+
+const initialValues: ContactFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  company: "",
+  message: "",
+};
+
 const ContactSection = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    message: "",
-  });
-  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setErrors({});
+  const { values, errors, isSubmitting, handleChange, handleSubmit } =
+    useFormValidation({
+      schema: contactSchema,
+      initialValues,
+      onSuccess: async () => {
+        // Simulate API call
+        await new Promise((resolve) => setTimeout(resolve, 500));
 
-    const result = contactSchema.safeParse(formData);
-    if (!result.success) {
-      const fieldErrors: Record<string, string> = {};
-      result.error.errors.forEach((err) => {
-        if (err.path[0]) {
-          fieldErrors[err.path[0] as string] = err.message;
-        }
-      });
-      setErrors(fieldErrors);
-      return;
-    }
-
-    toast({
-      title: "Gửi thành công!",
-      description: "Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.",
+        toast({
+          title: "🎉 Cảm ơn bạn đã liên hệ!",
+          description:
+            "Team Ore IMC sẽ phản hồi trong vòng 24h làm việc. Chúng tôi rất mong được hợp tác cùng bạn!",
+        });
+      },
     });
-    setFormData({ name: "", email: "", phone: "", company: "", message: "" });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    if (errors[name]) {
-      setErrors({ ...errors, [name]: "" });
-    }
-  };
 
   return (
     <section
       id="contact"
-      className="py-24 bg-background relative overflow-hidden"
+      className="py-32 md:py-40 bg-background relative overflow-hidden"
     >
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-dark/5 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-electricBlue/3 rounded-full blur-[100px]" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <ScrollReveal variant="fade-up" className="text-center mb-16">
           <p className="text-primary font-medium tracking-[0.3em] uppercase text-sm mb-4">
             Get In Touch
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
             Liên hệ <span className="text-gradient-gold">tư vấn</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Hãy để chúng tôi đồng hành cùng doanh nghiệp của bạn trong hành
             trình xây dựng thương hiệu
           </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-gold to-gold-light mx-auto mt-6" />
-        </motion.div>
+          <div className="w-24 h-1 bg-gradient-to-r from-gold to-gold-light mx-auto mt-6" />
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Offices info */}
@@ -148,11 +128,11 @@ const ContactSection = () => {
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
-                        <MapPin className="w-4 h-4" />
+                        <MapPin className="w-4 h-4 flex-shrink-0" />
                         <span>{office.address}</span>
                       </div>
                       <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                        <Phone className="w-4 h-4" />
+                        <Phone className="w-4 h-4 flex-shrink-0" />
                         <span>{office.phone}</span>
                       </div>
                     </div>
@@ -168,9 +148,12 @@ const ContactSection = () => {
               </div>
               <div>
                 <p className="text-foreground font-medium">Email</p>
-                <p className="text-muted-foreground text-sm">
+                <a
+                  href={`mailto:${contact.ore.email}`}
+                  className="text-muted-foreground text-sm hover:text-primary transition-colors"
+                >
                   {contact.ore.email}
-                </p>
+                </a>
               </div>
             </div>
           </motion.div>
@@ -194,7 +177,7 @@ const ContactSection = () => {
                   type="text"
                   name="name"
                   placeholder="Họ và tên *"
-                  value={formData.name}
+                  value={values.name}
                   onChange={handleChange}
                   className={`w-full px-4 py-3 bg-secondary border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors ${
                     errors.name ? "border-destructive" : "border-border"
@@ -209,7 +192,7 @@ const ContactSection = () => {
                   type="email"
                   name="email"
                   placeholder="Email *"
-                  value={formData.email}
+                  value={values.email}
                   onChange={handleChange}
                   className={`w-full px-4 py-3 bg-secondary border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors ${
                     errors.email ? "border-destructive" : "border-border"
@@ -229,7 +212,7 @@ const ContactSection = () => {
                   type="tel"
                   name="phone"
                   placeholder="Số điện thoại *"
-                  value={formData.phone}
+                  value={values.phone}
                   onChange={handleChange}
                   className={`w-full px-4 py-3 bg-secondary border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors ${
                     errors.phone ? "border-destructive" : "border-border"
@@ -246,7 +229,7 @@ const ContactSection = () => {
                   type="text"
                   name="company"
                   placeholder="Công ty / Tổ chức"
-                  value={formData.company}
+                  value={values.company || ""}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
                 />
@@ -257,7 +240,7 @@ const ContactSection = () => {
               <textarea
                 name="message"
                 placeholder="Nội dung cần tư vấn *"
-                value={formData.message}
+                value={values.message}
                 onChange={handleChange}
                 rows={5}
                 className={`w-full px-4 py-3 bg-secondary border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none ${
@@ -276,8 +259,9 @@ const ContactSection = () => {
               variant="gold"
               size="xl"
               className="w-full group gold-glow"
+              disabled={isSubmitting}
             >
-              Gửi yêu cầu tư vấn
+              {isSubmitting ? "Đang gửi..." : "Gửi yêu cầu tư vấn"}
               <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
 
