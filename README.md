@@ -1,6 +1,6 @@
-# IGC Fresher IT Preparation - Roadmap 5 Days
+# IGC Fresher IT Preparation
 
-Kho lưu trữ này chứa toàn bộ lộ trình thực hành và sản phẩm demo cho vị trí **Fresher IT tại IGC Group**. Dự án tập trung vào việc chứng minh nền tảng kỹ thuật vững chắc và khả năng ứng dụng AI vào quy trình phát triển phần mềm.
+Kho lưu trữ này chứa các sản phẩm demo cho vị trí **Fresher IT tại IGC Group**. Dự án tập trung vào việc chứng minh nền tảng kỹ thuật vững chắc và khả năng ứng dụng AI vào quy trình phát triển phần mềm.
 
 ## 📂 Cấu trúc dự án
 
